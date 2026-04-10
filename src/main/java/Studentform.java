@@ -71,7 +71,7 @@ public class Studentform extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Middle Nam");
+        jLabel3.setText("Middle Name");
 
         Middle_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +177,7 @@ public class Studentform extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(First_name, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         Student_applicationLayout.setVerticalGroup(
             Student_applicationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,6 +243,7 @@ public class Studentform extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Age_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Age_textActionPerformed
@@ -283,6 +284,33 @@ public class Studentform extends javax.swing.JFrame {
 
     private void Submit_applicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Submit_applicationActionPerformed
         // TODO add your handling code here:
+        String fName = First_name.getText();
+        String mName = Middle_name.getText();
+        String lName = Last_name.getText();
+        String course = Course_text.getText();
+        String age = Age_text.getText();
+        String year = Year_text.getText();
+        
+        String motherName = Mother_Name_text.getText().trim();
+        String motherOcc = Mother_Occupation.getText().trim();
+        String fatherName = Father_Name_.getText().trim();
+        String fatherOcc = Father_Occupation_text.getText().trim();
+        
+        if (fName.isEmpty() || mName.isEmpty() || lName.isEmpty() || 
+        course.isEmpty() || age.isEmpty() || year.isEmpty() ||
+        motherName.isEmpty() || motherOcc.isEmpty() || 
+        fatherName.isEmpty() || fatherOcc.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please fill all the information!", "Missing Data", javax.swing.JOptionPane.WARNING_MESSAGE);
+            
+        }else if (!age.matches("\\d+")) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Invalid Age! Please enter numbers only.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }else {
+        StudentEnrollment enrollmentSystem = new StudentEnrollment();
+        
+        javax.swing.JOptionPane.showMessageDialog(null, "Student enrolled successfully!");
+        
+         
+    }
     }//GEN-LAST:event_Submit_applicationActionPerformed
 
     /**
